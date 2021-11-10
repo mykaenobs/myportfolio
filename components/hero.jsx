@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="flex h-full mr-auto ml-auto max-w-container -mt-10 pointer-events-none">
       <div className="flex-1 flex justify-center flex-col h-full">
-        <hgroup className="font-jet text-white text-7xl uppercase">
+        <hgroup className="font-jet text-white text-5xl sm:text-7xl uppercase">
           <h2 className="font-thin">Micah</h2>
           <hr className="border-white w-56 mt-2 mb-2 ml-1 border-opacity-25" />
           <h1>Enobakhare</h1>
