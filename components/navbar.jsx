@@ -17,7 +17,7 @@ const Navbar = () => {
       </div>
       <div className="md:hidden">
         <span className="cursor-pointer bg-purple-900" onClick={() => setNav(!nav)} >
-          <HiMenu size={26} color={white} title={'Menu bar'} />
+          <HiMenu size={26} color={white} title={'Navigation'} />
         </span>
       </div>
     </nav>
