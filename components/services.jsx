@@ -10,31 +10,31 @@ const Services = () => {
         </span>
         <p>Website Design</p>
       </div>
-      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none">
+      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none shadow-md">
         <span className="inline-flex items-center justify-center text-3xl w-12 h-12 rounded-full bg-white text-red-100">
           <FaMobileAlt />
         </span>
         <p>Mobile App Development</p>
       </div>
-      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none">
+      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none shadow-md">
         <span className="inline-flex items-center justify-center text-3xl w-12 h-12 rounded-full bg-white text-red-100">
           <FaBroom />
         </span>
         <p>Graphics Design</p>
       </div>
-      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none">
+      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none shadow-md">
         <span className="inline-flex items-center justify-center text-3xl w-12 h-12 rounded-full bg-white text-red-100">
           <MdWeb />
         </span>
         <p>Website Design</p>
       </div>
-      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none">
+      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none shadow-md">
         <span className="inline-flex items-center justify-center text-3xl w-12 h-12 rounded-full bg-white text-red-100">
           <FaMobileAlt />
         </span>
         <p>Mobile App Development</p>
       </div>
-      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none">
+      <div className="bg-red-100 flex items-center gap-8 p-6 pr-8 pl-8 rounded-3xl rounded-tl-none shadow-md">
         <span className="inline-flex items-center justify-center text-3xl w-12 h-12 rounded-full bg-white text-red-100">
           <FaBroom />
         </span>

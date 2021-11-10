@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className="flex h-full mr-auto ml-auto max-w-container -mt-10">
+    <div className="flex h-full mr-auto ml-auto max-w-container -mt-10 pointer-events-none">
       <div className="flex-1 flex justify-center flex-col h-full">
         <hgroup className="font-jet text-white text-7xl uppercase">
           <h2 className="font-thin">Micah</h2>
@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex-1 h-full"></div>
-      <div className="rotate-12">
+      <div className="rotate-12 pointer-events-auto">
         <Link href="#">
           <a className="transform -rotate-45 h-20 w-20 bg-white border-2 border-red-100 text-red-100 text-center flex items-center justify-center rounded-full fixed left-2/4 top-2/4 -ml-10 -mt-10 font-jet text-sm font-medium uppercase shadow-md z-40">
             Hire <br /> Us
