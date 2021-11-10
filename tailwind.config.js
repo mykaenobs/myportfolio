@@ -1,12 +1,13 @@
 module.exports = {
   purge: [
-    './src/**/*.jsx'
+    './pages/**/*.{jsx, js}',
+    './components/**/*.{jsx, js}',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       backgroundImage: {
-        header: 'linear-gradient(to right, #FF8F73 50%, #FF734E 50%)'
+        header: 'linear-gradient(to right, #FF8F73 50%, #FF734E 50%)',
       }
     },
     fontFamily: {
