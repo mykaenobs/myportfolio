@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Hire from "./hire";
 
 const Hero = () => {
   return (
@@ -6,7 +7,7 @@ const Hero = () => {
       <div className="flex-1 flex justify-center flex-col h-full">
         <hgroup className="font-jet text-white text-5xl sm:text-7xl uppercase">
           <h2 className="font-thin">Micah</h2>
-          <hr className="border-white w-56 mt-2 mb-2 ml-1 border-opacity-25" />
+          <hr className="border-white w-36 md:w-56 mt-2 mb-2 ml-1 border-opacity-25" />
           <h1>Enobakhare</h1>
         </hgroup>
         <div className="flex items-center gap-2">
@@ -19,13 +20,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex-1 h-full"></div>
-      <div className="rotate-12 pointer-events-auto">
-        <Link href="#">
-          <a className="transform -rotate-45 w-16 h-16 -mt-8 -ml-8 bg-white border-2 border-red-100 text-red-100 text-center flex items-center justify-center rounded-full fixed left-2/4 top-2/4 font-jet text-xs md:text-sm font-medium uppercase shadow-md z-40 md:h-20 md:w-20 md:-ml-10 md:-mt-10">
-            Hire <br /> Us
-          </a>
-        </Link>
-      </div>
+      <Hire />
     </div>
   );
 }

@@ -20,8 +20,11 @@ module.exports = {
         200: '#FF734E',
       },
       grey: {
+        400: '#F6F6F6',
+        300: '#EEEEEE',
         100: '#EBEBEB',
         200: '#C8C8C8',
+        800: '#6E6E6E',
         900: '#555555'
       },
       white: '#FFFFFF',
