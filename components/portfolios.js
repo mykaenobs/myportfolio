@@ -4,8 +4,7 @@ const Portfolios = ({ more, children }) => {
   return (
     <section className="pr-8 pl-8">
       {children}
-
-    <BtnSolid more={more} />
+      <BtnSolid more={more} />
     </section>
   );
 }

@@ -37,13 +37,12 @@ module.exports = {
       'wrapper': '1100px',
       'head': '346px',
       'text': '434px'
-    },
-    // borderWidth: {
-    //   1: '1px',
-    // }
+    }
   },
   variants: {
-    extend: {},
+    extend: {
+      flexDirection: ['even', 'odd'],
+    },
   },
   plugins: [],
 }
