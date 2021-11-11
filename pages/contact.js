@@ -5,7 +5,7 @@ import Hire from "components/hire";
 import {BtnContact} from "components/buttons";
 import ContactForm from "components/contactForm";
 
-const GetInTouch = () => {
+const Contact = () => {
   return (
     <>
       <div className={"bg-purple-900 pl-8 pr-8"}>
@@ -20,4 +20,4 @@ const GetInTouch = () => {
   );
 }
 
-export default GetInTouch;
+export default Contact;
