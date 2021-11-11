@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const Testimonials = () => {
   return (
@@ -14,15 +15,29 @@ const Testimonials = () => {
           <span className="w-3 h-3 bg-grey-100 rounded-full"></span>
         </div>
       </hgroup>
-      <div className="flex-1">
-        <div className="bg-white shadow-2xl rounded-2xl p-10 relative">
-          <span className="block w-16 h-16 bg-grey-100 rounded-full absolute -top-6 -left-6 overflow-hidden">
-              <Image src="/images/project-01.png" alt="Project one" layout="fill" />
-          </span>
-          <p className="text-sm text-grey-900 font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam dicta, perspiciatis ullam laborum fugit suscipit repellendus placeat odit natus vitae modi nam corrupti praesentium similique nemo. Ducimus, nesciunt eos.</p>
-          <strong className="block mt-4 text-red-200 text-sm font-medium">Myka Enobs</strong>
-          <small className="text-grey-200">CEO of Figma</small>
-        </div>
+      <div className="flex-1 w-60">
+        <Swiper slidesPerView={1} spaceBetween={50}>
+          <SwiperSlide>
+            <div className="bg-white shadow-2xl rounded-2xl p-10 relative">
+              <span className="block w-16 h-16 bg-grey-100 rounded-full absolute -top-6 -left-6 overflow-hidden">
+                  <Image src="/images/project-01.png" alt="Project one" layout="fill" />
+              </span>
+              <p className="text-sm text-grey-900 font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam dicta, perspiciatis ullam laborum fugit suscipit repellendus placeat odit natus vitae modi nam corrupti praesentium similique nemo. Ducimus, nesciunt eos.</p>
+              <strong className="block mt-4 text-red-200 text-sm font-medium">Myka Enobs</strong>
+              <small className="text-grey-200">CEO of Figma</small>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="bg-white shadow-2xl rounded-2xl p-10 relative">
+              <span className="block w-16 h-16 bg-grey-100 rounded-full absolute -top-6 -left-6 overflow-hidden">
+                  <Image src="/images/project-01.png" alt="Project one" layout="fill" />
+              </span>
+              <p className="text-sm text-grey-900 font-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam dicta, perspiciatis ullam laborum fugit suscipit repellendus placeat odit natus vitae modi nam corrupti praesentium similique nemo. Ducimus, nesciunt eos.</p>
+              <strong className="block mt-4 text-red-200 text-sm font-medium">Myka Enobs</strong>
+              <small className="text-grey-200">CEO of Figma</small>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </section>
   );
