@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body, html {
+    scroll-margin-top: 20px;
+    scroll-behavior: smooth;
+  }
+}

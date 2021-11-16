@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Mini />
-      <Title subTitle="Our service" title="What we offer" />
+      <Title subTitle="Our service" title="What we offer" section="services" />
       <Services />
       <Title subTitle="Our portfolio" title="What we did!" />
       <Portfolios more={true}>
@@ -19,7 +19,7 @@ const HomePage = () => {
         <Portfolio reversed="flex-row-reverse" />
         <Portfolio reversed="flex-row" />
       </Portfolios>
-      <Title subTitle="Our statists" title="What our statists say!" />
+      <Title subTitle="Our statists" title="What our statists say!" section="stats" />
       <Statists />
       <Testimonials />
     </Layout>

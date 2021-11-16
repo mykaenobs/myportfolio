@@ -33,15 +33,19 @@ module.exports = {
       }
     },
     maxWidth: {
-      'container': '1200px',
-      'wrapper': '1100px',
-      'head': '346px',
-      'text': '434px'
+      container: '1200px',
+      wrapper: '1100px',
+      head: '346px',
+      text: '434px'
+    },
+    minWidth: {
+      testy: '4rem'
     }
   },
   variants: {
     extend: {
       flexDirection: ['even', 'odd'],
+      block: ['after']
     },
   },
   plugins: [],
