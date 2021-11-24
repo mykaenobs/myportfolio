@@ -2,3 +2,4 @@ node_modules
 .next
 .idea
 yarn.lock
+.env.local
