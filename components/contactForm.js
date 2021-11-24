@@ -26,7 +26,7 @@ const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
 
   const send = async (data) => {
-    const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + '/contacts', { ...data, serviceId: service });
+    const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
     const { data: response } = await fetch;
     console.log(response)
   }
