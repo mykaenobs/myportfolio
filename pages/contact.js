@@ -22,7 +22,7 @@ const Contact = ({ services }) => {
 }
 
 export const getStaticProps = async () => {
-  const fetch = await axios.get( process.env.URL + 'services');
+  const fetch = await axios.get( process.env.URL + '/services');
   const { data: services } = await fetch;
 
   return {

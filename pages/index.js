@@ -28,7 +28,7 @@ const HomePage = ({ projects, services }) => {
 };
 
 export const getStaticProps = async () => {
-  const fetch = await axios.get(process.env.URL + 'projects');
+  const fetch = await axios.get(process.env.URL + '/projects');
   const { data: projects } = await fetch;
 
   return {
