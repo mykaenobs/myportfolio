@@ -1,8 +1,7 @@
-import {BtnSolid} from "./buttons";
-
+import { BtnSolid } from "./buttons";
 const Portfolios = ({ more, children }) => {
   return (
-    <section className="pr-8 pl-8">
+    <section className="relative pr-8 pl-8">
       {children}
       <BtnSolid more={more} />
     </section>

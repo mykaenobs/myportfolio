@@ -4,8 +4,9 @@ import Portfolios from "../components/portfolios";
 import Footer from "components/footer";
 import Portfolio from "components/portfolio";
 import Hire from "components/hire";
+import axios from "axios";
 
-const Projects = () => {
+const Projects = ({ projects }) => {
   return (
     <>
       <div className={"bg-purple-900 pl-8 pr-8"}>
@@ -14,20 +15,22 @@ const Projects = () => {
       </div>
       <Title subTitle="Our portfolio" title="What we did!" />
       <Portfolios more={false}>
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
+        {projects.map(({id, name, description, image, link}, index) =>
+          <Portfolio key={id}  index={++index} title={name} desc={description} img={image} link={link} />
+        )}
       </Portfolios>
       <Footer />
     </>
   );
+}
+
+export const getStaticProps = async ({ req, res }) => {
+  const fetch = await axios.get(process.env.URL + 'projects');
+  const { data: projects } = await fetch;
+
+  return {
+    props: { projects }
+  }
 }
 
 export default Projects;
