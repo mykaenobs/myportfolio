@@ -6,8 +6,9 @@ import Statists from "components/statists";
 import Testimonials from "components/testimonials";
 import Title from "components/title";
 import Portfolio from "components/portfolio";
+import axios from "axios";
 
-const HomePage = () => {
+const HomePage = ({ projects, services }) => {
   return (
     <Layout>
       <Mini />
@@ -15,9 +16,9 @@ const HomePage = () => {
       <Services />
       <Title subTitle="Our portfolio" title="What we did!" />
       <Portfolios more={true}>
-        <Portfolio reversed="flex-row" />
-        <Portfolio reversed="flex-row-reverse" />
-        <Portfolio reversed="flex-row" />
+        {projects.map(({id, name, description, image, link}, index) =>
+          <Portfolio key={id}  index={++index} title={name} desc={description} img={image} link={link} />
+        )}
       </Portfolios>
       <Title subTitle="Our statists" title="What our statists say!" section="stats" />
       <Statists />
@@ -25,5 +26,16 @@ const HomePage = () => {
     </Layout>
   );
 };
+
+export const getStaticProps = async () => {
+  const fetch = await axios.get(process.env.URL + 'projects');
+  const { data: projects } = await fetch;
+
+  return {
+    props: {
+      projects: projects.slice(0, 3)
+    }
+  }
+}
 
 export default HomePage;
