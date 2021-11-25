@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Testimonial from "./testimonial";
 
-const Testimonials = () => {
+const Testimonials = ({ testimonials }) => {
   return (
     <section className="pr-8 pl-8 flex max-w-container flex-col gap-14 md:flex-row mr-auto ml-auto mt-48">
 
@@ -21,12 +21,11 @@ const Testimonials = () => {
       <div className="flex-1 w-full md:w-60">
         {/*<Testimonial desc="This is my description" name="Myka Enobs" pos="CEO of Figma" num="1"  />*/}
         <Swiper slidesPerView={1} spaceBetween={50}>
-          <SwiperSlide>
-            <Testimonial desc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus illum quas ullam voluptatibus? Consequuntur culpa dolore tenetur. Architecto, optio?" name="Myka Enobs" pos="CEO of Figma" num="1"  />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Testimonial desc="This is my description" name="Myka Enobs" pos="CEO of Figma" num="2"  />
-          </SwiperSlide>
+          {(testimonials) && testimonials.map(({id, name, text, image, title}) => (
+            <SwiperSlide key={id}>
+              <Testimonial desc={text} name={name} pos={title} image={image} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

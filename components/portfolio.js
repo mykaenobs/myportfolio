@@ -16,7 +16,7 @@ const Portfolio = ({index, title, desc, img, link}) => {
         </small>
         <h1 className="text-grey-900 text-2xl font-semibold mt-2 mb-2">{title}</h1>
         <p className="text-sm text-grey-200 font-light">{desc}</p>
-        <Link href={link}><a className="text-red-200 text-xs inline-block mt-2">Checkout Project</a></Link>
+        <Link href={"https://" + link}><a className="text-red-200 text-xs inline-block mt-2">Checkout Project</a></Link>
       </div>
     </section>
   );

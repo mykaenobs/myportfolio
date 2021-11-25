@@ -8,7 +8,7 @@ import Title from "components/title";
 import Portfolio from "components/portfolio";
 import axios from "axios";
 
-const HomePage = ({ projects, services }) => {
+const HomePage = ({ projects, testimonials }) => {
   return (
     <Layout>
       <Mini />
@@ -22,18 +22,22 @@ const HomePage = ({ projects, services }) => {
       </Portfolios>
       <Title subTitle="Our statists" title="What our statists say!" section="stats" />
       <Statists />
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
     </Layout>
   );
 };
 
 export const getStaticProps = async () => {
-  const fetch = await axios.get(process.env.URL + 'projects');
-  const { data: projects } = await fetch;
+  const fetchOne = await axios.get(process.env.URL + 'projects');
+  const { data: projects } = await fetchOne;
+
+  const fetchTwo = await axios.get(process.env.URL + 'testimonials');
+  const { data: testimonials } = await fetchTwo;
 
   return {
     props: {
-      projects: projects.slice(0, 3)
+      projects: projects.slice(0, 3),
+      testimonials
     }
   }
 }
