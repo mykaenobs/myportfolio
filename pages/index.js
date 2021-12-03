@@ -8,10 +8,10 @@ import Title from "components/title";
 import Portfolio from "components/portfolio";
 import axios from "axios";
 
-const HomePage = ({ projects, testimonials }) => {
+const HomePage = ({ projects, testimonials, services }) => {
   return (
     <Layout>
-      <Mini />
+      <Mini services={services} />
       <Title subTitle="Our service" title="What we offer" section="services" />
       <Services />
       <Title subTitle="Our portfolio" title="What we did!" />
@@ -34,10 +34,14 @@ export const getStaticProps = async () => {
   const fetchTwo = await axios.get(process.env.URL + 'testimonials');
   const { data: testimonials } = await fetchTwo;
 
+  const fetchThree = await axios.get(process.env.URL + 'services');
+  const { data: services } = await fetchThree;
+
   return {
     props: {
       projects: projects.slice(0, 3),
-      testimonials
+      testimonials,
+      services: services.slice(0, 5),
     }
   }
 }

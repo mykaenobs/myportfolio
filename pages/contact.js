@@ -29,7 +29,7 @@ export const getStaticProps = async () => {
   const { data: services } = await fetch;
 
   return {
-    props: { services: services.reverse() }
+    props: { services: services }
   }
 }
 
