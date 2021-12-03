@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 const Contact = ({ services }) => {
   const [modal, setModal] = useState(false);
+
   return (
     <>
       <div className={"bg-purple-900 pl-8 pr-8"}>
