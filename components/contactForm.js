@@ -2,7 +2,7 @@ import {RiGenderlessLine} from "react-icons/ri";
 import {MdAlternateEmail} from "react-icons/md";
 import {BsPhone} from "react-icons/bs";
 import ContactServices from "./contactServices";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
@@ -19,16 +19,26 @@ const schema = yup.object({
   description: yup.string().required('a little bit of project description will be helpful :)'),
 }).required();
 
-const ContactForm = ({ services }) => {
+const ContactForm = ({ services, setModal }) => {
+  const [service, setService] = useState([]);
+  const button = useRef();
+
   const { register, handleSubmit, formState: { errors: { name, email, phone, description } } } = useForm({
     resolver: yupResolver(schema)
   });
-  const [service, setService] = useState([]);
 
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
-    const { data: response } = await fetch;
-    console.log(response)
+    const { data: { created } } = await fetch;
+
+    if (created) modal();
+  }
+
+  const modal = () => {
+    setModal(true);
+    setTimeout(() => {
+      setModal(false)
+    }, 3000)
   }
 
   return (
@@ -102,7 +112,7 @@ const ContactForm = ({ services }) => {
         <ContactServices services={services} setService={setService} service={service} />
 
         <div className="flex justify-center mt-16">
-          <input type="submit" className="p-3 pl-5 pr-5 bg-red-200 text-white rounded text-sm" value="Send Message"/>
+          <input type="submit" ref={button} className="p-3 pl-5 pr-5 bg-red-200 text-white rounded text-sm" value="Send Message"/>
         </div>
       </form>
     </>

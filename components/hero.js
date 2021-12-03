@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import Hire from "./hire";
 
 const Hero = () => {
   return (
-    <div className="flex h-full mr-auto ml-auto max-w-container -mt-10 pointer-events-none">
+    <div className="flex h-full mr-auto ml-auto max-w-container -mt-16 pointer-events-none">
       <div className="flex-1 flex justify-center flex-col h-full">
         <hgroup className="font-jet text-white text-5xl sm:text-7xl uppercase">
           <h2 className="font-thin">Micah</h2>
@@ -19,7 +18,7 @@ const Hero = () => {
           <p className="font-light text-sm text-grey-100 max-w-text">I am a UI/UX Designer. An Expert Web App and Mobile App Development. A good 3D designer, model and character sculpting.  </p>
         </div>
       </div>
-      <div className="flex-1 h-full"></div>
+      <div className="flex-1 h-full bg-center"></div>
       <Hire />
     </div>
   );

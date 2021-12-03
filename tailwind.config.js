@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         header: 'linear-gradient(to right, #FF8F73 50%, #FF734E 50%)',
+        hero: 'url(\'/images/bg.png\')',
       }
     },
     fontFamily: {
@@ -45,7 +46,8 @@ module.exports = {
   variants: {
     extend: {
       flexDirection: ['even', 'odd'],
-      block: ['after']
+      block: ['after'],
+      invisible: ['first-child']
     },
   },
   plugins: [],
