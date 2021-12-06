@@ -7,11 +7,21 @@ import Testimonials from "components/testimonials";
 import Title from "components/title";
 import Portfolio from "components/portfolio";
 import axios from "axios";
+import useStore from '@store/index';
+import { useEffect } from 'react';
 
 const HomePage = ({ projects, testimonials, services }) => {
+  const state = useStore(state => state.services);
+
+  useEffect(() => {
+    useStore.setState({ services: services });
+    useStore.setState({ testimonials: testimonials });
+    useStore.setState({ projects: projects });
+  }, [])
+
   return (
     <Layout>
-      <Mini services={services} />
+      <Mini />
       <Title subTitle="Our service" title="What we offer" section="services" />
       <Services />
       <Title subTitle="Our portfolio" title="What we did!" />
@@ -22,7 +32,7 @@ const HomePage = ({ projects, testimonials, services }) => {
       </Portfolios>
       <Title subTitle="Our statists" title="What our statists say!" section="stats" />
       <Statists />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials />
     </Layout>
   );
 };

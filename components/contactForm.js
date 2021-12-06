@@ -2,11 +2,12 @@ import {RiGenderlessLine} from "react-icons/ri";
 import {MdAlternateEmail} from "react-icons/md";
 import {BsPhone} from "react-icons/bs";
 import ContactServices from "./contactServices";
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
 import * as yup from 'yup';
+import useStore from '@store/index';
 
 axios.interceptors.response.use(undefined, ({ response }) => {
   console.log(response);
@@ -19,26 +20,30 @@ const schema = yup.object({
   description: yup.string().required('a little bit of project description will be helpful :)'),
 }).required();
 
-const ContactForm = ({ services, setModal }) => {
+const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
+  const [clear, setClear] = useState(false);
+  const modal = useStore(state => state.modal);
+
   const button = useRef();
 
-  const { register, handleSubmit, formState: { errors: { name, email, phone, description } } } = useForm({
+
+  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
     resolver: yupResolver(schema)
   });
 
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
     const { data: { created } } = await fetch;
-
-    if (created) modal();
+    if (created) modalControl();
   }
 
-  const modal = () => {
-    setModal(true);
-    setTimeout(() => {
-      setModal(false)
-    }, 3000)
+  const modalControl = () => {
+    reset();
+    useStore.setState({ modal: !modal });
+    setService([]);
+    setClear(!clear);
+    setTimeout(() => useStore.setState({ modal: false }), 3000);
   }
 
   return (
@@ -109,7 +114,7 @@ const ContactForm = ({ services, setModal }) => {
             </div>
           </div>
         </div>
-        <ContactServices services={services} setService={setService} service={service} />
+        <ContactServices services={services} setService={setService} service={service} clear={clear} />
 
         <div className="flex justify-center mt-16">
           <input type="submit" ref={button} className="p-3 pl-5 pr-5 bg-red-200 text-white rounded text-sm" value="Send Message"/>

@@ -2,11 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Portfolio = ({index, title, desc, img, link}) => {
+  const image = `${process.env.NEXT_PUBLIC_URL}projects/files/${img}`;
+
   return (
     <section className="max-w-wrapper ml-auto mr-auto mt-32 flex justify-between flex-col h-30 md:even:flex-row-reverse md:items-center gap-x-32 gap-y-10 md:mt-20 md:flex-row">
       <div className="bg-grey-100 flex-1 relative">
         <div className="transform rotate-6 w-full h-full bg-red-200">
-          <Image src={process.env.NEXT_PUBLIC_URL + "projects/files/" + img} priority className="transform" alt="Project one" layout="responsive" width={200} height={120} />
+          <Image src={image} blurDataURL={image} placeholder={'blur'} className="transform" alt="Project one" layout="responsive" width={200} height={120} />
         </div>
       </div>
       <div className="flex-1">

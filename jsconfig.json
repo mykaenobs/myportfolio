@@ -4,6 +4,9 @@
     "paths": {
       "@style/*": [
         "styles/*"
+      ],
+      "@store/*": [
+        "store/*"
       ]
     }
   }

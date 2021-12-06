@@ -1,5 +1,7 @@
-import { MdWeb } from "react-icons/md";
-import { FaMobileAlt, FaBroom } from "react-icons/fa";
+import { MdWeb } from 'react-icons/md';
+import { FaMobileAlt, FaBroom } from 'react-icons/fa';
+import { AiOutlineAntDesign, AiFillFormatPainter } from 'react-icons/ai';
+import { GiIdea } from 'react-icons/gi';
 import Service from "./service";
 import { SvgLeft } from './svg';
 
@@ -16,14 +18,14 @@ const Services = () => {
       <Service title="UI/UX Design">
         <FaBroom />
       </Service>
-      <Service title="Mobile App Development">
-        <FaMobileAlt />
+      <Service title="Mobile App Design">
+        <AiOutlineAntDesign />
       </Service>
-      <Service title="UI/UX Design">
-        <FaBroom />
+      <Service title="Graphic Design">
+        <AiFillFormatPainter />
       </Service>
-      <Service title="Website Design">
-        <MdWeb />
+      <Service title="Problem Solving">
+        <GiIdea />
       </Service>
     </section>
   );

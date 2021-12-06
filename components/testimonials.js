@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Testimonial from "./testimonial";
+import useStore from '@store/index';
 
-const Testimonials = ({ testimonials }) => {
+const Testimonials = () => {
+  const testimonials = useStore(state => state.testimonials);
+
   return (
     <section className="pr-8 pl-8 flex max-w-container flex-col gap-14 md:flex-row mr-auto ml-auto mt-48">
 
@@ -19,7 +22,6 @@ const Testimonials = ({ testimonials }) => {
         </div>
       </hgroup>
       <div className="flex-1 w-full md:w-60">
-        {/*<Testimonial desc="This is my description" name="Myka Enobs" pos="CEO of Figma" num="1"  />*/}
         <Swiper slidesPerView={1} spaceBetween={50}>
           {(testimonials) && testimonials.map(({id, name, text, image, title}) => (
             <SwiperSlide key={id}>

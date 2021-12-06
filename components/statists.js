@@ -1,8 +1,11 @@
+import useStore from '@store/index';
 
 const Statists = () => {
   return (
     <section className="pl-8 pr-8">
-      <div className="bg-red-200 mt-10 flex flex-wrap gap-8 p-6 rounded-2xl md:max-w-container md:mr-auto md:ml-auto">
+      <div className="bg-red-200 mt-10 flex flex-wrap gap-8 p-6 rounded-2xl md:max-w-container md:mr-auto md:ml-auto"
+        onClick={() => useStore.setState({ services: [...useStore.getState().services, 'Mobile App Development']}) }
+      >
         <div className="flex-1 text-red-200 uppercase bg-white text-center p-4 pt-8 pb-8 rounded-2xl">
           <h1 className="text-7xl font-bold font-jet">41</h1>
           <p className="mt-2">Happy Client</p>

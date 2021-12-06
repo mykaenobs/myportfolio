@@ -1,4 +1,16 @@
-const ContactServices = ({ services, service, setService }) => {
+import { useRef, useEffect } from 'react';
+
+const ContactServices = ({ services, service, setService, clear }) => {
+
+  // TODO: Am going to make this choose function apply from state
+  // TODO: Am going to make the choose selection based on the index number of the element and make a check against the element itself
+
+  const servs = useRef([]);
+
+  useEffect(() => {
+    if (clear)
+      for (let service of servs.current) service.dataset.selected = 'false';
+  }, [servs])
 
   const chosen = ({target}) => {
     const id = Number(target.dataset.id);
@@ -27,6 +39,7 @@ const ContactServices = ({ services, service, setService }) => {
             key={id}
             data-id={id}
             data-selected={false}
+            ref={(el) => servs.current.push(el)}
             onClick={chosen}
           >{name}</p>
         ))}

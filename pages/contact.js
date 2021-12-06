@@ -5,10 +5,11 @@ import {BtnContact} from "components/buttons";
 import ContactForm from "components/contactForm";
 import axios from 'axios';
 import Modal from 'components/modal';
-import { useState } from 'react';
+import useStore from '@store/index';
+import { useEffect } from 'react';
 
 const Contact = ({ services }) => {
-  const [modal, setModal] = useState(false);
+  const modal = useStore(state => state.modal);
 
   return (
     <>
@@ -17,7 +18,7 @@ const Contact = ({ services }) => {
       </div>
       <Title subTitle="Contact Us" title="Get in touch with us!" />
       <BtnContact />
-      <ContactForm setModal={setModal} services={services} />
+      <ContactForm services={services} />
       <Footer />
       {modal && (<Modal />)}
     </>
