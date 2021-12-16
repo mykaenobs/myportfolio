@@ -10,13 +10,14 @@ import axios from "axios";
 import useStore from '@store/index';
 import { useEffect } from 'react';
 
-const HomePage = ({ projects, testimonials, services }) => {
+const HomePage = (props) => {
   const state = useStore(state => state.services);
 
   useEffect(() => {
-    useStore.setState({ services: services });
-    useStore.setState({ testimonials: testimonials });
-    useStore.setState({ projects: projects });
+    useStore.setState({ services: props.services });
+    useStore.setState({ testimonials: props.testimonials });
+    useStore.setState({ projects: props.projects });
+    useStore.setState({ statics: props.statics });
   }, [])
 
   return (
@@ -26,7 +27,7 @@ const HomePage = ({ projects, testimonials, services }) => {
       <Services />
       <Title subTitle="Our portfolio" title="What we did!" />
       <Portfolios more={true}>
-        {projects.map(({id, name, description, image, link}, index) =>
+        {props.projects.map(({id, name, description, image, link}, index) =>
           <Portfolio key={id}  index={++index} title={name} desc={description} img={image} link={link} />
         )}
       </Portfolios>
@@ -47,11 +48,15 @@ export const getStaticProps = async () => {
   const fetchThree = await axios.get(process.env.URL + 'services');
   const { data: services } = await fetchThree;
 
+  const fetchFour = await axios.get(process.env.URL + 'statics');
+  const { data: statics } = await fetchFour;
+
   return {
     props: {
       projects: projects.slice(0, 3),
       testimonials,
       services: services.slice(0, 5),
+      statics
     }
   }
 }

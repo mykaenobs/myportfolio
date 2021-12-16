@@ -16,7 +16,7 @@ const Projects = ({ projects }) => {
       <Title subTitle="Our portfolio" title="What we did!" />
       <Portfolios more={false}>
         {projects.map(({id, name, description, image, link}, index) =>
-          <Portfolio key={id}  index={++index} title={name} desc={description} img={image} link={link} />
+          <Portfolio key={id} index={++index} title={name} desc={description} img={image} link={link} />
         )}
       </Portfolios>
       <Footer />
