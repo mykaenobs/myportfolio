@@ -17,8 +17,8 @@ module.exports = {
     },
     colors: {
       red: {
-        100: '#FF8F73',
-        200: '#FF734E',
+        100: '#FF8DF3',
+        200: '#CF5AF0',
       },
       grey: {
         400: '#F6F6F6',
