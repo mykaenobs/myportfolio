@@ -22,7 +22,7 @@ const Contact = ({ services }) => {
       </div>
       <Title subTitle="Contact Us" title="Get in touch with us!" />
       <BtnContact />
-      {/*<ContactForm services={services} />*/}
+      <ContactForm services={services} />
       <Footer />
       {modal && (<Modal />)}
     </>
