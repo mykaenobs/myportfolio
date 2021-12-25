@@ -9,7 +9,7 @@ import useStore from '@store/index';
 import { useEffect } from 'react';
 import Head from 'next/head';
 
-const Contact = ({ services }) => {
+const Contact = () => {
   const modal = useStore(state => state.modal);
 
   return (
@@ -22,20 +22,20 @@ const Contact = ({ services }) => {
       </div>
       <Title subTitle="Contact Us" title="Get in touch with us!" />
       <BtnContact />
-      <ContactForm services={services} />
+      {/*<ContactForm services={services} />*/}
       <Footer />
       {modal && (<Modal />)}
     </>
   );
 };
-
-export const getServerSideProps = async () => {
-  const fetch = await axios.get(process.env.URL + 'services');
-  const { data: services } = await fetch;
-
-  return {
-    props: { services: services }
-  };
-};
+//
+// export const getServerSideProps = async () => {
+//   const fetch = await axios.get(process.env.URL + 'services');
+//   const { data: services } = await fetch;
+//
+//   return {
+//     props: { services: services }
+//   };
+// };
 
 export default Contact;
