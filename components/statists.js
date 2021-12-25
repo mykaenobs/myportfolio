@@ -3,8 +3,6 @@ import useStore from '@store/index';
 const Statists = () => {
   const statics = useStore(state => state.statics);
 
-  console.log(statics)
-
   return (
     <section className="pl-8 pr-8">
       <div className="bg-red-200 mt-10 flex flex-wrap gap-8 p-6 rounded-2xl md:max-w-container md:mr-auto md:ml-auto">
@@ -16,7 +14,7 @@ const Statists = () => {
         )}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Statists;

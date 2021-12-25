@@ -29,7 +29,7 @@ const Contact = ({ services }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const fetch = await axios.get(process.env.URL + 'services');
   const { data: services } = await fetch;
 

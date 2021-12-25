@@ -28,7 +28,7 @@ const Projects = ({ projects }) => {
   );
 };
 
-export const getStaticProps = async ({ req, res }) => {
+export const getServerSideProps = async ({ req, res }) => {
   const fetch = await axios.get(process.env.URL + 'projects');
   const { data: projects } = await fetch;
 
