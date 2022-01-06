@@ -22,9 +22,9 @@ const ContactForm = ({ services }) => {
   const button = useRef(null);
   const modal = useStore(state => state.modal);
 
-  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
-    resolver: yupResolver(schema)
-  });
+  // const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
+  //   resolver: yupResolver(schema)
+  // });
 
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
