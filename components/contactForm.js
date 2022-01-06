@@ -22,15 +22,15 @@ const ContactForm = ({ services }) => {
   const button = useRef(null);
   const modal = useStore(state => state.modal);
 
-  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
-    resolver: yupResolver(schema)
-  });
-
-  const send = async (data) => {
-    const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
-    const { data: { created } } = await fetch;
-    // if (created) modalControl();
-  };
+  // const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
+  //   resolver: yupResolver(schema)
+  // });
+  //
+  // const send = async (data) => {
+  //   const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
+  //   const { data: { created } } = await fetch;
+  //   // if (created) modalControl();
+  // };
 
   // const modalControl = () => {
   //   reset();
@@ -41,7 +41,7 @@ const ContactForm = ({ services }) => {
   // };
 
   return (
-    <form className="mt-20 pr-8 pl-8" onSubmit={handleSubmit(send)}>
+    <form className="mt-20 pr-8 pl-8">
       <div
         className="flex flex-wrap flex-col gap-y-7 md:flex-row md:gap-x-8 md:mr-auto md:ml-auto md:max-w-container">
         <div className="flex-1">
