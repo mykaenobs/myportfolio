@@ -22,9 +22,9 @@ const ContactForm = ({ services }) => {
   const button = useRef(null);
   const modal = useStore(state => state.modal);
 
-  // const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
-  //   resolver: yupResolver(schema)
-  // });
+  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
+    resolver: yupResolver(schema)
+  });
 
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
@@ -55,7 +55,6 @@ const ContactForm = ({ services }) => {
                 type="text"
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 placeholder={'eg john doe'}
-                {...register('name')}
               />
             </div>
           </div>
@@ -70,7 +69,6 @@ const ContactForm = ({ services }) => {
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 id="email"
                 placeholder={'eg john@doe.com'}
-                {...register('email')}
               />
             </div>
           </div>
@@ -85,7 +83,6 @@ const ContactForm = ({ services }) => {
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 id="phone"
                 placeholder={'eg +234802347784'}
-                {...register('phone', { valueAsNumber: true })}
               />
             </div>
           </div>
@@ -99,7 +96,6 @@ const ContactForm = ({ services }) => {
               className="border-2 border-grey-300 rounded outline-none w-full h-60 text-sm font-light p-3 md:flex-1 resize-none"
               id="description"
               placeholder={'Describe your project here...'}
-              {...register('description')}
             />
           </div>
         </div>
