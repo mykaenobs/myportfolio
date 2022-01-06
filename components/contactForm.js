@@ -3,11 +3,11 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { BsPhone } from 'react-icons/bs';
 import ContactServices from './contactServices';
 import { useRef, useState } from 'react';
-// import * as yup from 'yup';
-// import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
 // import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
-// import axios from 'axios';
-// import useStore from '@store/index';
+import axios from 'axios';
+import useStore from '@store/index';
 
 // const schema = yup.object({
 //   name: yup.string().required(),
