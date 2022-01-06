@@ -9,22 +9,22 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
 import useStore from '@store/index';
 
-const schema = yup.object({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  phone: yup.number().typeError('phone must be a number').positive(),
-  description: yup.string().required('a little bit of project description will be helpful :)')
-}).required();
+// const schema = yup.object({
+//   name: yup.string().required(),
+//   email: yup.string().email().required(),
+//   phone: yup.number().typeError('phone must be a number').positive(),
+//   description: yup.string().required('a little bit of project description will be helpful :)')
+// }).required();
 
 const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
   const [clear, setClear] = useState(false);
   const button = useRef(null);
   const modal = useStore(state => state.modal);
-  //
-  // const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
-  //   resolver: yupResolver(schema)
-  // });
+
+  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
+    resolver: yupResolver(schema)
+  });
 
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
