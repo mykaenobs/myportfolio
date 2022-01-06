@@ -3,14 +3,45 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { BsPhone } from 'react-icons/bs';
 import ContactServices from './contactServices';
 import { useRef, useState } from 'react';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
+import axios from 'axios';
+import useStore from '@store/index';
+
+const schema = yup.object({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  phone: yup.number().typeError('phone must be a number').positive(),
+  description: yup.string().required('a little bit of project description will be helpful :)')
+}).required();
 
 const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
   const [clear, setClear] = useState(false);
-  const button = useRef();
+  const button = useRef(null);
+  const modal = useStore(state => state.modal);
+
+  const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
+    resolver: yupResolver(schema)
+  });
+
+  const send = async (data) => {
+    const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
+    const { data: { created } } = await fetch;
+    if (created) modalControl();
+  };
+
+  const modalControl = () => {
+    reset();
+    useStore.setState({ modal: !modal });
+    setService([]);
+    setClear(!clear);
+    setTimeout(() => useStore.setState({ modal: false }), 3000);
+  };
 
   return (
-    <form className="mt-20 pr-8 pl-8">
+    <form className="mt-20 pr-8 pl-8" onSubmit={handleSubmit(send)}>
       <div
         className="flex flex-wrap flex-col gap-y-7 md:flex-row md:gap-x-8 md:mr-auto md:ml-auto md:max-w-container">
         <div className="flex-1">
@@ -24,6 +55,7 @@ const ContactForm = ({ services }) => {
                 type="text"
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 placeholder={'eg john doe'}
+                {...register('name')}
               />
             </div>
           </div>
@@ -38,6 +70,7 @@ const ContactForm = ({ services }) => {
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 id="email"
                 placeholder={'eg john@doe.com'}
+                {...register('email')}
               />
             </div>
           </div>
@@ -52,6 +85,7 @@ const ContactForm = ({ services }) => {
                 className="border-2 border-l-0 border-grey-300 rounded-r outline-none w-full text-sm font-light p-3 pl-0"
                 id="phone"
                 placeholder={'eg +234802347784'}
+                {...register('phone', { valueAsNumber: true })}
               />
             </div>
           </div>
@@ -65,6 +99,7 @@ const ContactForm = ({ services }) => {
               className="border-2 border-grey-300 rounded outline-none w-full h-60 text-sm font-light p-3 md:flex-1 resize-none"
               id="description"
               placeholder={'Describe your project here...'}
+              {...register('description')}
             />
           </div>
         </div>
