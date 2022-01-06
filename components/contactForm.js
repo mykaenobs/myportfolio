@@ -9,10 +9,6 @@ import axios from 'axios';
 import * as yup from 'yup';
 import useStore from '@store/index';
 
-// axios.interceptors.response.use(undefined, ({ response }) => {
-//   console.log(response);
-// });
-
 const schema = yup.object({
   name: yup.string().required(),
   email: yup.string().email().required(),
