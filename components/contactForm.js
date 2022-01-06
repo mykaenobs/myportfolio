@@ -29,16 +29,16 @@ const ContactForm = ({ services }) => {
   const send = async (data) => {
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
     const { data: { created } } = await fetch;
-    if (created) modalControl();
+    // if (created) modalControl();
   };
 
-  const modalControl = () => {
-    reset();
-    useStore.setState({ modal: !modal });
-    setService([]);
-    setClear(!clear);
-    setTimeout(() => useStore.setState({ modal: false }), 3000);
-  };
+  // const modalControl = () => {
+  //   reset();
+  //   useStore.setState({ modal: !modal });
+  //   setService([]);
+  //   setClear(!clear);
+  //   setTimeout(() => useStore.setState({ modal: false }), 3000);
+  // };
 
   return (
     <form className="mt-20 pr-8 pl-8" onSubmit={handleSubmit(send)}>
