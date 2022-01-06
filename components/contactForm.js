@@ -9,12 +9,12 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
 import useStore from '@store/index';
 
-// const schema = yup.object({
-//   name: yup.string().required(),
-//   email: yup.string().email().required(),
-//   phone: yup.number().typeError('phone must be a number').positive(),
-//   description: yup.string().required('a little bit of project description will be helpful :)')
-// }).required();
+const schema = yup.object({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  phone: yup.number().typeError('phone must be a number').positive(),
+  description: yup.string().required('a little bit of project description will be helpful :)')
+}).required();
 
 const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
