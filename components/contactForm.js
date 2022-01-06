@@ -2,13 +2,13 @@ import { RiGenderlessLine } from 'react-icons/ri';
 import { MdAlternateEmail } from 'react-icons/md';
 import { BsPhone } from 'react-icons/bs';
 import ContactServices from './contactServices';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
 import * as yup from 'yup';
 import useStore from '@store/index';
-//
+
 // axios.interceptors.response.use(undefined, ({ response }) => {
 //   console.log(response);
 // });
@@ -26,7 +26,6 @@ const ContactForm = ({ services }) => {
   const modal = useStore(state => state.modal);
 
   const button = useRef();
-
 
   const { register, handleSubmit, reset, formState: { errors: { name, email, phone, description } } } = useForm({
     resolver: yupResolver(schema)
