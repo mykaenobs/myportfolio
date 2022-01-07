@@ -8,6 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup/dist/yup';
 import axios from 'axios';
 import * as yup from 'yup';
 import useStore from '@store/index';
+import { useRouter } from 'next/router';
 
 const schema = yup.object({
   name: yup.string().required(),
@@ -20,6 +21,7 @@ const ContactForm = ({ services }) => {
   const [service, setService] = useState([]);
   const [clear, setClear] = useState(false);
   const modal = useStore(state => state.modal);
+  const router = useRouter();
 
   const button = useRef();
 
@@ -28,6 +30,7 @@ const ContactForm = ({ services }) => {
   });
 
   const send = async (data) => {
+    button.current.textContent = 'loading...';
     const fetch = await axios.post(process.env.NEXT_PUBLIC_URL + 'contacts', { ...data, serviceId: service });
     const { data: { created } } = await fetch;
     if (created) modalControl();
@@ -35,10 +38,14 @@ const ContactForm = ({ services }) => {
 
   const modalControl = () => {
     reset();
+    button.current.textContent = 'Message Sent';
     useStore.setState({ modal: !modal });
     setService([]);
     setClear(!clear);
-    setTimeout(() => useStore.setState({ modal: false }), 3000);
+    setTimeout(() => {
+      useStore.setState({ modal: false });
+      router.push('/');
+    }, 3000);
   };
 
   return (
@@ -113,8 +120,9 @@ const ContactForm = ({ services }) => {
         <ContactServices services={services} setService={setService} service={service} clear={clear} />
 
         <div className="flex justify-center mt-16">
-          <input type="submit" ref={button} className="p-3 pl-5 pr-5 bg-red-200 text-white rounded text-sm"
-                 value="Send Message" />
+          <button type="submit" ref={button} className="p-3 pl-5 pr-5 bg-red-200 text-white rounded text-sm">
+            Send Message
+          </button>
         </div>
       </form>
     </>
