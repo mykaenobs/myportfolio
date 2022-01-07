@@ -49,7 +49,7 @@ const ContactForm = ({ services }) => {
           <div className="flex-1">
             <div className="text-grey-800">
               <label htmlFor="name" className="font-medium text-sm">Your Name</label>
-              {name && <span className="text-red-200 text-sm font-light">* {name.message}</span>}
+              {name && <span className="text-brick text-sm font-light">* {name.message}</span>}
               <div className="flex items-center relative">
                 <span className="border-grey-300 border-2 rounded-l border-r-0 h-12 grid place-content-center p-3">
                   <RiGenderlessLine />
@@ -64,7 +64,7 @@ const ContactForm = ({ services }) => {
             </div>
             <div className="text-grey-800 mt-5">
               <label htmlFor="email" className="font-medium text-sm">Email</label>
-              {email && <span className="text-red-200 text-sm font-light">* {email.message}</span>}
+              {email && <span className="text-brick text-sm font-light">* {email.message}</span>}
               <div className="flex items-center relative">
                 <span className="border-grey-300 border-2 rounded-l border-r-0 h-12 grid place-content-center p-3">
                   <MdAlternateEmail />
@@ -80,7 +80,7 @@ const ContactForm = ({ services }) => {
             </div>
             <div className="text-grey-800 mt-5">
               <label htmlFor="phone" className="font-medium text-sm">Phone</label>
-              {phone && <span className="text-red-200 text-sm font-light">* {phone.message}</span>}
+              {phone && <span className="text-brick text-sm font-light">* {phone.message}</span>}
               <div className="flex items-center relative">
                 <span className="border-grey-300 border-2 rounded-l border-r-0 h-12 grid place-content-center p-3">
                   <BsPhone />
@@ -99,7 +99,7 @@ const ContactForm = ({ services }) => {
             <div className="text-grey-800 flex flex-col gap-1 h-full">
               <div>
                 <label htmlFor="description" className="font-medium text-sm">Project Description</label>
-                {description && <span className="text-red-200 text-sm font-light">* {description.message}</span>}
+                {description && <span className="text-brick text-sm font-light">* {description.message}</span>}
               </div>
               <textarea
                 className="border-2 border-grey-300 rounded outline-none w-full h-60 text-sm font-light p-3 md:flex-1 resize-none"

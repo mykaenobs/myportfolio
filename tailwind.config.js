@@ -31,7 +31,8 @@ module.exports = {
       white: '#FFFFFF',
       purple: {
         900: '#292635'
-      }
+      },
+      brick: '#ff1a1a'
     },
     maxWidth: {
       container: '1200px',

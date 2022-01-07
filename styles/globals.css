@@ -9,8 +9,8 @@
   }
 
   .serviceActive {
-    --red: hsl(12, 100%, 73%);
-    --grey: hsl(0, 0%, 92%);
+    --red: #CF5AF0;
+    --grey: #FF8DF3;
     background-color: var(--red) !important;
     color: white !important;
     border-color: var(--grey) !important;
